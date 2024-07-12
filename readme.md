@@ -9,6 +9,17 @@ Nessa api é utilizado o `goapi-gen` para gerar código boilerplate para facilit
 go generate ./...
 ```
 
+### Generate interfaces implementation
+Using goimpl
+```shell
+go install github.com/josharian/impl@latest
+```
+
+ex.:
+```shell
+impl 'api API' github.com/JoaoRafa19/nlw-journey-2024-go/internal/api/spec.ServerInterface
+```
+
 ## Deps
 
 

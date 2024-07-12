@@ -3,13 +3,20 @@
 Nessa api é utilizado o `goapi-gen` para gerar código boilerplate para facilitar o desenvolvimento da API.
 `sqlc` para gerar as interfaces das entidades das tabelas dos bancos de dados (não é um ORM)
 
+## Generate
+
+```shell
+go generate ./...
+```
 
 ## Deps
+
 
 #### Install all deps:
 ```shell
 go mod tidy
 ```
+
 
 - **goapi-gen**
 ```shell
@@ -22,6 +29,9 @@ go install github.com/discord-gophers/goapi-gen@latest
  ```
 
 - **sqlc**
+- ```shell
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+```
 
 
 ## Generate

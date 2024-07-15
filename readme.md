@@ -28,8 +28,12 @@ impl 'api API' github.com/JoaoRafa19/nlw-journey-2024-go/internal/api/spec.Serve
 go mod tidy
 ```
 
+- **gomail** `github.com/wneessen/go-mail`
+Usado para escrever emails em go 
+
 
 - **goapi-gen**
+Para gerar boilerplate da api com base na especificação do json
 ```shell
 go install github.com/discord-gophers/goapi-gen@latest
 ```
@@ -40,9 +44,10 @@ go install github.com/discord-gophers/goapi-gen@latest
  ```
 
 - **sqlc**
-- ```shell
+```shell
 go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 ```
+
 
 
 ## Generate

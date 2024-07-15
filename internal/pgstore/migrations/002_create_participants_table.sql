@@ -12,6 +12,3 @@ CREATE TABLE IF NOT EXISTS participants (
 ---- create above / drop below ----
 
 DROP TABLE IF EXISTS participants;
-
--- Write your migrate down statements here. If this migration is irreversible
--- Then delete the separator line above.

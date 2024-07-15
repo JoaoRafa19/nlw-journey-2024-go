@@ -12,6 +12,7 @@ import (
 
 	"github.com/JoaoRafa19/nlw-journey-2024-go/internal/api"
 	"github.com/JoaoRafa19/nlw-journey-2024-go/internal/api/spec"
+	"github.com/JoaoRafa19/nlw-journey-2024-go/internal/mailer/mailpit"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -73,7 +74,7 @@ func run(ctx context.Context) error {
 	if err := pool.Ping(ctx); err != nil {
 		return err
 	}
-	si := api.NewAPI(pool, logger)
+	si := api.NewAPI(pool, logger, mailpit.NewMailpit(pool, os.Getenv("JOURNEY_MAILPIT_HOST")))
 
 	r := chi.NewMux()
 	r.Use(middleware.RequestID, middleware.Recoverer, httputils.ChiLogger(logger))

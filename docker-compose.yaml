@@ -15,6 +15,7 @@ services:
     ports:
       - 8080:8080
     environment:
+      JOURNEY_MAILPIT_HOST: ${JOURNEY_MAILPIT_HOST_DOCKER:-mailpit}
       JOURNEY_DATABASE_USER: ${JOURNEY_DATABASE_USER}
       JOURNEY_DATABASE_PASSWORD: ${JOURNEY_DATABASE_PASSWORD}
       JOURNEY_DATABASE_HOST: ${JOURNEY_DATABASE_HOST_DOCKER:-db}
@@ -24,6 +25,16 @@ services:
 
     depends_on:
       - db
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    volumes:
+      - mailpit:/data
+    ports:
+      - 1025:1025
+      - 8025:8025
+    environment:
+      MP_DATABASE: /data/mailpit.db
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -45,4 +56,6 @@ volumes:
   db:
     driver: local
   pgadmin:
+    driver: local
+  mailpit:
     driver: local
